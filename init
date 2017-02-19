@@ -1,0 +1,28 @@
+# install brew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# install apps
+brew cask install google-chrome spotify slack keepingyouawake appcleaner webtorrent visual-studio-code intellij-idea-ce
+
+# wipe all icons from the dock
+defaults delete com.apple.dock persistent-apps
+defaults delete com.apple.dock persistent-others
+
+# set dock size to 48 pixels
+defaults write com.apple.dock tilesize -int 48
+
+# set dock position to the left
+defaults write com.apple.dock orientation left
+
+# automatically show/hide the dock
+defaults write com.apple.dock autohide -bool true
+
+# set max/min effect to scale
+defaults write com.apple.dock mineffect -string "scale"
+
+# restart dock and finder
+killall Dock
+killall Finder
+
+# download terminal themes
+git clone https://github.com/lysyi3m/osx-terminal-themes.git
